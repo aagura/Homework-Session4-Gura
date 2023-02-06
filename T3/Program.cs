@@ -1,7 +1,8 @@
-﻿//Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+﻿//Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
-//3 -> 1, 8, 27
-//5 -> 1, 8, 27, 64, 125
+//1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+
+//6, 1, 33 -> [6, 1, 33]
 
 int GetNumber(string message)
 {
@@ -25,17 +26,26 @@ int GetNumber(string message)
     return result;
 }
 
-void cub (int number)
+int  [] inputarray ()
 {
- int i = 1;
-  while (i<number)
-  {
-    Console.Write (Convert.ToString (Math.Pow (i,3)));
-    Console.Write (", ");
-    i++;
-  }
-    Console.Write (Convert.ToString (Math.Pow (number,3)));
+int [] array = new int [8];
+for (int i = 0 ; i < array.Length ; i++)
+{
+array [i] = GetNumber($"Введите элемент {i}");
 }
-    
-int number = GetNumber ("Введите  число");
-cub (number);
+return array;
+}
+
+void  printarray (int [] array)
+{
+Console.Write ("[");
+for (int i = 0 ; i < array.Length-1 ; i++)
+{
+Console.Write ($"{array[i]},");
+}
+Console.Write ($"{array[array.Length-1]}]");
+}
+
+
+int [] array = inputarray ();
+printarray (array); 

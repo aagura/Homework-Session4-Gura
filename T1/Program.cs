@@ -1,10 +1,8 @@
-﻿//Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+﻿//Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
-//14212 -> нет
+//3, 5 -> 243 (3⁵)
 
-//12821 -> да
-
-//23432 -> да
+//2, 4 -> 16
 
 int GetNumber(string message)
 {
@@ -12,20 +10,13 @@ int GetNumber(string message)
 
     while(true)
     {
-        Console.WriteLine(message);
+      Console.WriteLine(message);
 
         if(int.TryParse(Console.ReadLine(), out result)) 
         {
-        if (Math.Abs (result) < 9999 || Math.Abs (result) > 99999)     
-           {Console.WriteLine("Ввели не пятизначное число. Повторите ввод");
-           }
-           else 
-           {
             break;
-           }
-        }
-
-        else
+             }
+         else
         {
             Console.WriteLine("Ввели не число. Повторите ввод");
         }
@@ -35,29 +26,18 @@ int GetNumber(string message)
 }
 
 
-int reverse (int number)
+int power (int number, int raise)
 {
-int rev = 0;
-int dig = 1;
-number = Math.Abs (number);
-while(number  > 0)
-  { 
-    dig =number  % 10;
-    rev= rev * 10 + dig;
-    number = number / 10;
-  }
-  return rev;
+int power = 1;
+for (int i = 1; i <= raise; i++ )
+{ 
+    power = power*number;
+} 
+  return power;
 }
     
-int number = GetNumber ("Введите пятизначное число");
+int number = GetNumber ("Введите  число");
 
-int polindrom = reverse (number);
+int raise = GetNumber ("Введите  степень");
 
-if(Math.Abs (polindrom) == Math.Abs (number))
-{
-   Console.WriteLine ("Это палиндром!");
-}
-else
-{
-  Console.WriteLine ("Это не палиндром!");
-}
+Console.WriteLine ($"{number} в степени {raise} равно {power(number,raise)}");

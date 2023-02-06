@@ -1,8 +1,10 @@
-﻿//Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+﻿//Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-//A (3,6,8); B (2,1,-7), -> 15.84
+//452 -> 11
 
-//A (7,-5, 0); B (1,-1,9) -> 11.53
+//82 -> 10
+
+//9012 -> 12
 
 int GetNumber(string message)
 {
@@ -24,18 +26,18 @@ int GetNumber(string message)
 
     return result;
 }
-
-double Distance (int x1, int y1, int z1, int x2, int y2, int z2)
+int sumNumber (int number)
 {
-    double dist = Math.Sqrt (Math.Pow((x1-x2),2) +Math.Pow((y1-y2),2)+Math.Pow((z1-z2),2));
-    return dist; 
+ string stringNumber = Convert.ToString (number);
+ int result = 0;
+ for (int i = 0 ; i < stringNumber.Length ; i++)
+ {
+      result= result + stringNumber[i]-'0';
+ }
+ return result;
 }
 
-int x1 = GetNumber ("Введите значение x1");
-int y1 = GetNumber ("Введите значение y1");
-int z1 = GetNumber ("Введите значение z1");
-int x2 = GetNumber ("Введите значение x2");
-int y2 = GetNumber ("Введите значение y2");
-int z2 = GetNumber ("Введите значение z2");
+int number = GetNumber ("Введите число");
 
-Console.WriteLine (Distance (x1,y1,z1,x2,y2,z2));
+
+Console.WriteLine ($"Сумма цифр числа {number} равна {sumNumber (number)}");
